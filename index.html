@@ -42,6 +42,7 @@
     --accent-hover: #9bd2ee;
     --on-accent: #0d131c;
     --warm: #e9c97b;
+    --accent2: #7ee8b0;
     --nav-bg: rgba(13, 19, 28, 0.92);
     --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
     --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -59,6 +60,7 @@
     --accent-hover: #084f78;
     --on-accent: #ffffff;
     --warm: #8a5a00;
+    --accent2: #17845c;
     --nav-bg: rgba(246, 248, 251, 0.94);
     color-scheme: light;
   }
@@ -171,17 +173,72 @@
   ul.list .sub { display: block; font-family: var(--sans); font-size: 14px; color: var(--muted); }
   ul.list .yr { font-family: var(--sans); font-size: 14px; color: var(--muted); white-space: nowrap; padding-top: 3px; }
 
+
+  /* RESEARCH INTEREST BOXES */
+  .interest-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 14px; }
+  .interest { background: var(--panel); border: 1px solid var(--line); padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 16px; }
+  .interest .ico { font-size: 24px; line-height: 1; }
+  .interest .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.7; color: var(--accent); }
+
+  /* OPTIONAL IMAGES (filled from the images/ folder in the repo) */
+  .split { display: flex; gap: 36px; align-items: flex-start; }
+  .split .text { flex: 1; min-width: 0; }
+  .figs { flex: 0 0 360px; max-width: 42%; display: none; flex-direction: column; gap: 14px; }
+  .figs.has { display: flex; }
+  figure.opt { margin: 0; }
+  figure.opt[hidden] { display: none; }
+  figure.opt img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; background: #fff; }
+
+  /* SKILL CLUSTERS */
+  .clusters { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+  .cluster { background: var(--panel); border: 1px solid var(--line); padding: 30px 32px 34px; }
+  .cluster .c-icon { display: block; font-size: 26px; line-height: 1; margin-bottom: 18px; }
+  .cluster .c-title { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .bars { list-style: none; margin: 0; padding: 0; }
+  .bars li { display: grid; grid-template-columns: minmax(0, 1fr) 30%; align-items: center; gap: 14px; padding: 7px 0; font-family: var(--sans); font-size: 14px; color: var(--muted); }
+  .bar { display: block; height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }
+  .bar b { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+
+  /* AWARDS */
+  .awards { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .award { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 18px; align-items: center; background: var(--panel); border: 1px solid var(--line); padding: 18px 24px; }
+  .award .a-ico { font-size: 22px; text-align: center; line-height: 1; }
+  .award .a-title { font-family: var(--sans); font-size: 15px; line-height: 1.45; }
+  .award .a-sub { display: block; font-family: var(--sans); font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .award .a-year { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--warm); }
+
+  /* COMMUNITY */
+  .vol { display: flex; gap: 44px; align-items: flex-start; padding: 30px 0; border-top: 1px solid var(--line); }
+  .vol.first { border-top: 0; padding-top: 0; }
+  .vol .vbody { flex: 1; min-width: 0; }
+  .vol figure.opt { flex: 0 0 170px; order: 2; }
+  .vol.logo-left figure.opt { order: 0; flex-basis: 150px; }
+  .vol-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; padding: 30px 0; border-top: 1px solid var(--line); }
+  .v-org { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent2); margin-bottom: 8px; }
+  .v-role { font-family: var(--serif); font-weight: 600; font-size: 21px; line-height: 1.3; margin: 0 0 4px; }
+  .v-when { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--dim); margin: 0 0 12px; }
+  .v-desc { font-family: var(--sans); font-size: 15px; line-height: 1.75; color: var(--muted); margin: 0; max-width: none; }
+  .v-desc b { color: var(--text); font-weight: 500; }
+  .members { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .member { display: flex; gap: 16px; align-items: flex-start; background: var(--panel); border: 1px solid var(--line); padding: 20px 22px; }
+  .member .m-ico { font-size: 22px; line-height: 1; padding-top: 2px; }
+  .member .m-org { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  .member .m-title { font-family: var(--sans); font-size: 15px; line-height: 1.45; }
+  .member .m-since { font-family: var(--mono); font-size: 11px; color: var(--dim); margin-top: 6px; }
+
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-family: var(--sans); font-size: 13px; color: var(--muted); }
 
-  @media (max-width: 860px) {
-    .wrap { padding: 0 20px; }
+  @media (max-width: 1040px) {
     .topbar .wrap { flex-wrap: wrap; gap: 0 16px; padding-top: 8px; padding-bottom: 0; min-height: 0; }
     .brand { order: 1; padding: 10px 0; }
     .theme-btn { order: 2; margin-left: auto; }
     .nav { order: 3; flex-basis: 100%; overflow-x: auto; margin: 0 -20px; padding: 0 20px; -webkit-overflow-scrolling: touch; }
     .nav ul { gap: 20px; }
     .nav a { display: block; padding: 10px 0; white-space: nowrap; }
-    .nav { position: relative; }
+    main section { scroll-margin-top: 96px; }
+  }
+  @media (max-width: 860px) {
+    .wrap { padding: 0 20px; }
     .hero { padding: 36px 0 40px; }
     .hero .wrap { grid-template-columns: 1fr; gap: 24px; }
     .portrait { width: 160px; }
@@ -191,6 +248,13 @@
     .row .when, dl.skills dt, dl.contact dt { padding-top: 0; }
     .interests { columns: 1; }
     .feature { padding: 22px 20px; }
+    .split, .vol { flex-direction: column; gap: 20px; }
+    .figs { flex-basis: auto; max-width: 100%; width: 100%; }
+    .vol figure.opt, .vol.logo-left figure.opt { order: 0; flex-basis: auto; width: min(100%, 260px); }
+    .vol-pair { grid-template-columns: 1fr; gap: 30px; }
+    .cluster { padding: 24px 22px 26px; }
+    .award { grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 16px 16px; }
+    .award .a-year { grid-column: 2; }
     .result { font-size: 22px; }
     h2 { font-size: 28px; }
   }
@@ -211,6 +275,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#training">Training</a></li>
         <li><a href="#awards">Awards</a></li>
+        <li><a href="#community">Community</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -260,21 +325,24 @@
 
     <h3 class="sub">Ongoing research</h3>
     <div class="item">
-      <h3>FedVProp: silent propagation of adversarial influence in federated intrusion detection</h3>
-      <p class="meta">2026 to present. Manuscript in preparation with Prof. Rubaiyat Hossain Mondal.</p>
-      <p>Investigates whether adversarial influence introduced at one federated intrusion-detection client reaches honest clients through repeated model aggregation. Under increasing and oscillatory perturbations, up to 88.89% of honest clients were affected on TON_IoT and 44.44% on IDS Dataset 2025. Counterfactual analysis shows that removing compromised updates significantly improves federated learning outcomes, and the vulnerability profile changes from one dataset to another.</p>
-      <ul class="tags" aria-label="Topics"><li>Federated learning</li><li>Intrusion detection</li><li>Adversarial robustness</li></ul>
-    </div>
-    <div class="item">
-      <h3>Vulnerability propagation in federated intrusion detection on CIC-IDS2018</h3>
-      <p class="meta">Exploratory study, unpublished</p>
-      <p>Examines adversarial noise perturbation across federated clients under FedAvg aggregation. The write-up reports its experimental confounds openly.</p>
+      <div class="split">
+        <div class="text">
+          <h3>FedVProp: silent propagation of adversarial influence in federated intrusion detection</h3>
+          <p class="meta">2026 to present. Manuscript in preparation with Prof. Rubaiyat Hossain Mondal.</p>
+          <p>Investigates whether adversarial influence introduced at one federated intrusion-detection client reaches honest clients through repeated model aggregation. Under increasing and oscillatory perturbations, up to 88.89% of honest clients were affected on TON_IoT and 44.44% on IDS Dataset 2025. Counterfactual analysis shows that removing compromised updates significantly improves federated learning outcomes, and the vulnerability profile changes from one dataset to another.</p>
+          <ul class="tags" aria-label="Topics"><li>Federated learning</li><li>Intrusion detection</li><li>Adversarial robustness</li></ul>
+        </div>
+        <!-- GRAPHS: add images/fedvprop-1 and images/fedvprop-2 (.png, .jpg, .jpeg, .webp or .svg) to the repo. They appear here on the right. -->
+        <div class="figs" data-optional>
+          <figure class="opt" hidden><img data-base="images/fedvprop-1" alt="FedVProp result graph 1"></figure>
+          <figure class="opt" hidden><img data-base="images/fedvprop-2" alt="FedVProp result graph 2"></figure>
+        </div>
+      </div>
     </div>
     <div class="item">
       <h3>XAI-GuardNet: explainable federated learning framework on TON_IoT</h3>
-      <p class="meta">Research code (Colab notebook), unpublished</p>
+      <p class="meta">Unpublished</p>
       <p>Combines network traffic, Windows and Linux logs, and IoT telemetry. Features are selected in three stages (mutual information, XGBoost, SHAP). Training uses FedAvg with a homogeneous TabTransformer, adversarial defense (FGSM and PGD), differential privacy through DP-SGD, and threat hunting mapped to MITRE ATT&amp;CK.</p>
-      <ul class="tags" aria-label="Topics"><li>Explainability</li><li>Differential privacy</li><li>Multi-modal data</li></ul>
     </div>
 
     <h3 class="sub">Research experience</h3>
@@ -303,13 +371,13 @@
     </div>
 
     <h3 class="sub">Research interests</h3>
-    <ul class="interests">
-      <li>Machine learning for medical diagnosis</li>
-      <li>Deep learning for anomaly and disease detection</li>
-      <li>Federated and privacy-preserving learning</li>
-      <li>AI-driven cybersecurity and threat detection</li>
-      <li>Intelligent optimization for large-scale systems</li>
-      <li>High performance and quantum computing</li>
+    <ul class="interest-grid">
+      <li class="interest"><span class="ico" aria-hidden="true">🧠</span><span class="lbl">Machine learning for medical diagnosis</span></li>
+      <li class="interest"><span class="ico" aria-hidden="true">🔍</span><span class="lbl">Deep learning for anomaly and disease detection</span></li>
+      <li class="interest"><span class="ico" aria-hidden="true">🔐</span><span class="lbl">Federated and privacy-preserving learning</span></li>
+      <li class="interest"><span class="ico" aria-hidden="true">🛡️</span><span class="lbl">AI-driven cybersecurity and threat detection</span></li>
+      <li class="interest"><span class="ico" aria-hidden="true">⚙️</span><span class="lbl">Intelligent optimization for large-scale systems</span></li>
+      <li class="interest"><span class="ico" aria-hidden="true">⚛️</span><span class="lbl">High performance and quantum computing</span></li>
     </ul>
   </div>
 </section>
@@ -334,14 +402,6 @@
         <p>Thesis: <i>Design of Soil Moisture Measurement Device Based on Capacitance Measurement System.</i> Thesis adviser: Prof. Dr. Md. Quamrul Ahsan.</p>
       </div>
     </div>
-    <h3 class="sub">Test scores</h3>
-    <div class="scores">
-      <div class="score"><b>7.0</b><span>IELTS overall</span></div>
-      <div class="score"><b>7.5 / 8.0</b><span>Listening / Reading</span></div>
-      <div class="score"><b>6.5 / 6.0</b><span>Writing / Speaking</span></div>
-      <div class="score"><b>154 / 141</b><span>GRE Quant / Verbal</span></div>
-    </div>
-    <p class="meta" style="margin-top:10px">IELTS taken 20 July 2026.</p>
   </div>
 </section>
 
@@ -393,20 +453,44 @@
 <section id="skills">
   <div class="wrap">
     <h2>Skills</h2>
-    <dl class="skills">
-      <dt>Machine learning</dt>
-      <dd>Feature selection, metaheuristic optimization, ensemble classifiers, deep learning, federated learning (FedAvg), explainability (SHAP), differential privacy (DP-SGD), adversarial robustness (FGSM, PGD)</dd>
-      <dt>Programming and analysis</dt>
-      <dd>Python, C, C++, 8086 assembly, MATLAB, Microsoft Excel</dd>
-      <dt>Security and privacy</dt>
-      <dd>NIST, GDPR, DPIA and DSIA, DLP, vendor due diligence, data security audits</dd>
-      <dt>Network security</dt>
-      <dd>Cisco ASA, FTD and IPS, F5 load balancers and WAF, site-to-site and remote-access VPNs</dd>
-      <dt>Networking and systems</dt>
-      <dd>LTE, OSPF, IS-IS, BGP, MPLS, Windows, Linux, virtualization and cloud concepts</dd>
-      <dt>Engineering tools</dt>
-      <dd>PSpice, Proteus, Quartus, AutoCAD, Visio</dd>
-    </dl>
+    <div class="clusters">
+      <div class="cluster">
+        <span class="c-icon" aria-hidden="true">🤖</span>
+        <h3 class="c-title">AI / ML / Data Science</h3>
+        <ul class="bars">
+          <li><span>Machine Learning</span><i class="bar"><b style="width:90%"></b></i></li>
+          <li><span>Feature Engineering</span><i class="bar"><b style="width:88%"></b></i></li>
+          <li><span>Deep Learning</span><i class="bar"><b style="width:75%"></b></i></li>
+          <li><span>Python / NumPy</span><i class="bar"><b style="width:80%"></b></i></li>
+          <li><span>MATLAB</span><i class="bar"><b style="width:85%"></b></i></li>
+          <li><span>Data Analysis / BI</span><i class="bar"><b style="width:82%"></b></i></li>
+        </ul>
+      </div>
+      <div class="cluster">
+        <span class="c-icon" aria-hidden="true">🛡️</span>
+        <h3 class="c-title">Cybersecurity &amp; Privacy</h3>
+        <ul class="bars">
+          <li><span>NIST RMF / GDPR</span><i class="bar"><b style="width:92%"></b></i></li>
+          <li><span>Threat Modeling</span><i class="bar"><b style="width:88%"></b></i></li>
+          <li><span>Data Privacy (DLP/DPIA)</span><i class="bar"><b style="width:90%"></b></i></li>
+          <li><span>Network Firewalls</span><i class="bar"><b style="width:87%"></b></i></li>
+          <li><span>F5 WAF / Load Balancing</span><i class="bar"><b style="width:83%"></b></i></li>
+          <li><span>Data Governance / Ethics</span><i class="bar"><b style="width:86%"></b></i></li>
+        </ul>
+      </div>
+      <div class="cluster">
+        <span class="c-icon" aria-hidden="true">🌐</span>
+        <h3 class="c-title">Networking &amp; Infrastructure</h3>
+        <ul class="bars">
+          <li><span>LTE / 4G / Telecom</span><i class="bar"><b style="width:88%"></b></i></li>
+          <li><span>OSPF / BGP / MPLS</span><i class="bar"><b style="width:84%"></b></i></li>
+          <li><span>DevOps / Cloud (AWS)</span><i class="bar"><b style="width:78%"></b></i></li>
+          <li><span>Virtualization / KVM</span><i class="bar"><b style="width:75%"></b></i></li>
+          <li><span>Linux / Windows</span><i class="bar"><b style="width:85%"></b></i></li>
+          <li><span>VPN / Network Security</span><i class="bar"><b style="width:87%"></b></i></li>
+        </ul>
+      </div>
+    </div>
     <h3 class="sub">Selected projects</h3>
     <ul class="bullets">
       <li>IBM Model 1 translation on the Europarl corpus</li>
@@ -446,31 +530,96 @@
 <!-- AWARDS -->
 <section id="awards">
   <div class="wrap">
-    <h2>Recognition and service</h2>
-    <ul class="list">
-      <li><span>Star Performer: Privacy Enhancing Technology (PET) status assessment covering 45 systems<span class="sub">Q3, Robi Axiata PLC.</span></span><span class="yr">2025</span></li>
-      <li><span>Star Performer: organization-wide data exposure exercise on global and insider threat<span class="sub">Q1, Robi Axiata PLC.</span></span><span class="yr">2024</span></li>
-      <li><span>Star Performer: non-compliant contract classification using deep learning for security and privacy clauses<span class="sub">Q4, Robi Axiata PLC.</span></span><span class="yr">2022</span></li>
-      <li><span>Star Performer<span class="sub">Q2, Red.Digital Ltd.</span></span><span class="yr">2021</span></li>
-      <li><span>Guiding Principles Champion<span class="sub">Q4, Robi Axiata PLC.</span></span><span class="yr">2020</span></li>
-      <li><span>Best Analyst<span class="sub">Q3, Red.Digital Ltd.</span></span><span class="yr">2020</span></li>
-      <li><span>Runner-up, Bangladesh National Science Fair<span class="sub">Project: Market Monitoring by Software</span></span><span class="yr">2008</span></li>
+    <h2>Recognition and achievements</h2>
+    <ul class="awards">
+      <li class="award"><span class="a-ico" aria-hidden="true">⭐</span><span class="a-title">Star Performer — Status assessment of 45 systems for Privacy Enhancing Technology (PET)<span class="a-sub">Robi Axiata · R&amp;C Townhall Q3</span></span><span class="a-year">2025</span></li>
+      <li class="award"><span class="a-ico" aria-hidden="true">⭐</span><span class="a-title">Star Performer — Organization-wide Data Exposure Exercise (Global &amp; Insider Threat)<span class="a-sub">Robi Axiata · R&amp;C Townhall Q1</span></span><span class="a-year">2024</span></li>
+      <li class="award"><span class="a-ico" aria-hidden="true">⭐</span><span class="a-title">Star Performer — Non-compliant Contract Classification using Deep Learning<span class="a-sub">Robi Axiata · R&amp;C Townhall Q4</span></span><span class="a-year">2022</span></li>
+      <li class="award"><span class="a-ico" aria-hidden="true">🏆</span><span class="a-title">Star Performer — Outstanding Support on Q2 · 1st Red.Digital Townhall H1<span class="a-sub">Red.Digital Limited</span></span><span class="a-year">2021</span></li>
+      <li class="award"><span class="a-ico" aria-hidden="true">🏅</span><span class="a-title">Robi Guiding Principles Champions — Q4: Collaborate to Deliver<span class="a-sub">Robi Axiata PLC.</span></span><span class="a-year">2020</span></li>
+      <li class="award"><span class="a-ico" aria-hidden="true">🏅</span><span class="a-title">Best Analyst — Q3<span class="a-sub">Red.Digital Limited</span></span><span class="a-year">2020</span></li>
+      <li class="award"><span class="a-ico" aria-hidden="true">🥈</span><span class="a-title">Runners-Up — Bangladesh National Science Fair<span class="a-sub">Project: Market Monitoring by Software</span></span><span class="a-year">2008</span></li>
     </ul>
+  </div>
+</section>
 
-    <h3 class="sub">Leadership and professional service</h3>
-    <ul class="list">
-      <li><span>Secretary, Risk &amp; Compliance Management Team (RCMT) and Data Sharing Impact Assessment (DSIA) Team<span class="sub">Robi Axiata PLC.</span></span><span class="yr">2024 – 2026</span></li>
-      <li><span>Secretary, Dhaka Jewel Round Table<span class="sub">Round Table Bangladesh</span></span><span class="yr">2023 – present</span></li>
-      <li><span>President, Bogra Association of BUET Students</span><span class="yr">2014 – 2015</span></li>
-      <li><span>Judge, National Robotic Festival<span class="sub">Engineering Students Association of Bangladesh (ESAB)</span></span><span class="yr">2014</span></li>
-      <li><span>Coordinator, EEE Day<span class="sub">Department of EEE, BUET</span></span><span class="yr">2015</span></li>
-      <li><span>Volunteer: IEEE R10 Meet (2015), International Robotics Challenge (IRC) Techfest 2014-15, ICIEV-13</span><span class="yr"></span></li>
-      <li><span>Curation, <i>Electron</i> 2015, EEE Day magazine</span><span class="yr">2015</span></li>
-      <li><span>Editor, <span lang="bn">শিকড়</span> (Root), souvenir of Reunion-2013 and 30 years celebration of Police Lines High School and College, Bogura</span><span class="yr">2013</span></li>
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="wrap">
+    <h2>Volunteering and leadership</h2>
+    <!-- IMAGES: add these to an images/ folder in the repo and they appear automatically (.jpg, .jpeg, .png, .webp or .svg):
+         images/electron-cover   images/ieee-logo   images/shikor-cover -->
+
+    <div class="vol first">
+      <div class="vbody">
+        <div class="v-org">ICIEV 2013 · Science &amp; Technology</div>
+        <h3 class="v-role">Volunteer — International Conference on Informatics, Electronics &amp; Vision</h3>
+        <p class="v-when">2013 · BUET, Dhaka</p>
+        <p class="v-desc">Volunteered at <b>ICIEV 2013</b>, an international conference bringing together researchers in informatics, electronics, and computer vision. Assisted with session management, delegate coordination, and technical operations.</p>
+      </div>
+    </div>
+
+    <div class="vol">
+      <div class="vbody">
+        <div class="v-org">EEE Day · BUET · Featured role</div>
+        <h3 class="v-role">Editor — <i>Electron</i>, EEE Day Souvenir Magazine</h3>
+        <p class="v-when">Bangladesh University of Engineering and Technology</p>
+        <p class="v-desc">Served as Editor of <i>Electron</i>, the official souvenir magazine of <b>EEE Day 2015</b> at BUET. Managed the full editorial pipeline — content solicitation from faculty and students, copyediting, layout review, and final publication — for one of the department's flagship annual events. Also served as <b>Student Coordinator and Organiser</b> of the EEE Day 2015 event itself, overseeing logistics and programme management.</p>
+      </div>
+      <figure class="opt" hidden><img data-base="images/electron-cover" alt="Cover of Electron, the EEE Day 2015 souvenir magazine"></figure>
+    </div>
+
+    <div class="vol-pair">
+      <div>
+        <div class="v-org">Bogra Association of BUET Students (BABS)</div>
+        <h3 class="v-role">President</h3>
+        <p class="v-when">Oct 2014 – Sep 2015 · 1 year</p>
+        <p class="v-desc">Led the Bogra Association of BUET Students as President, representing students from Bogra district at BUET. Organised cultural, academic, and networking events strengthening regional student community bonds. Previously served as <b>Treasurer</b> of the same association (Feb 2013 – Oct 2014).</p>
+      </div>
+      <div>
+        <div class="v-org">Engineering Students' Association of Bangladesh (ESAB)</div>
+        <h3 class="v-role">Coordinator, BUET Unit Face</h3>
+        <p class="v-when">2013 – 2014</p>
+        <p class="v-desc">Coordinated the BUET unit of ESAB, facilitating inter-university engineering student collaboration across Bangladesh. Organised technical workshops, seminars, and the <b>National Robotic Festival (NRF-2014)</b> as a Judge, promoting robotics and innovation among engineering students.</p>
+      </div>
+    </div>
+
+    <div class="vol logo-left">
+      <div class="vbody">
+        <div class="v-org">IEEE Region 10 (Asia-Pacific)</div>
+        <h3 class="v-role">Volunteer — IEEE R10 Meet, Dhaka</h3>
+        <p class="v-when">2015 · Dhaka, Bangladesh</p>
+        <p class="v-desc">Volunteered at the <b>IEEE Region 10 Meeting 2015</b> held in Dhaka, one of the largest IEEE regional gatherings in Asia-Pacific, supporting event coordination and technical session logistics.</p>
+      </div>
+      <figure class="opt" hidden><img data-base="images/ieee-logo" alt="IEEE logo"></figure>
+    </div>
+
+    <div class="vol">
+      <div class="vbody">
+        <div class="v-org">International Robotics Challenge</div>
+        <h3 class="v-role">Volunteer — IRC Techfest 2014-15</h3>
+        <p class="v-when">2014 – 2015</p>
+      </div>
+    </div>
+
+    <div class="vol">
+      <div class="vbody">
+        <div class="v-org">Police Lines School &amp; College, Bogra · Editorial</div>
+        <h3 class="v-role">Publication Secretary &amp; Editor — <i>Shikor</i> (Souvenir)</h3>
+        <p class="v-when">Jan 2013 – Oct 2013 · 10 months</p>
+        <p class="v-desc">Served as <b>Publication Secretary and Editor</b> of <i>Shikor</i>, the commemorative souvenir magazine for the <i>Reunion 2013 &amp; 30 Years Celebration</i> of Police Lines School and College, Bogra. Managed the complete publication process from content collection to print-ready delivery for this milestone alumni event.</p>
+      </div>
+      <figure class="opt" hidden><img data-base="images/shikor-cover" alt="Cover of Shikor, the Reunion 2013 souvenir magazine"></figure>
+    </div>
+
+    <h3 class="sub">Professional memberships and current leadership</h3>
+    <ul class="members">
+      <li class="member"><span class="m-ico" aria-hidden="true">🏛️</span><div><div class="m-org">Robi Axiata PLC.</div><div class="m-title">Secretary — Risk &amp; Compliance Management Team (RCMT)</div><div class="m-since">2024 – 2026</div></div></li>
+      <li class="member"><span class="m-ico" aria-hidden="true">🏛️</span><div><div class="m-org">Robi Axiata PLC.</div><div class="m-title">Secretary — Data Sharing Impact Assessment (DSIA) Team</div><div class="m-since">2024 – 2026</div></div></li>
+      <li class="member"><span class="m-ico" aria-hidden="true">🔵</span><div><div class="m-org">Round Table International</div><div class="m-title">Secretary — Dhaka Jewel Round Table &amp; Member, Round Table International</div><div class="m-since">2023 – Present</div></div></li>
+      <li class="member"><span class="m-ico" aria-hidden="true">🎓</span><div><div class="m-org">BUET Alumni Association</div><div class="m-title">Life Member</div><div class="m-since">Member since graduation</div></div></li>
+      <li class="member"><span class="m-ico" aria-hidden="true">⚡</span><div><div class="m-org">IEEE Bangladesh Section</div><div class="m-title">Member</div><div class="m-since">Active member</div></div></li>
     </ul>
-
-    <h3 class="sub">Memberships</h3>
-    <p>Life Member, BUET Alumni. Member, IEEE Bangladesh Section. Member, Round Table Bangladesh.</p>
   </div>
 </section>
 
@@ -482,6 +631,7 @@
     <dl class="contact">
       <dt>Email</dt><dd><a href="mailto:anisurrahman251@gmail.com">anisurrahman251@gmail.com</a></dd>
       <dt>BUET email</dt><dd><a href="mailto:1018312001@ict.buet.ac.bd">1018312001@ict.buet.ac.bd</a></dd>
+      <dt>Phone</dt><dd><a href="tel:+18597875779">+1 859 787 5779</a></dd>
       <dt>Google Scholar</dt><dd><a href="https://scholar.google.com/citations?user=i7s9x9QAAAAJ&amp;hl=en" target="_blank" rel="noopener">scholar.google.com</a></dd>
       <dt>GitHub</dt><dd><a href="https://github.com/anisurrahman251" target="_blank" rel="noopener">github.com/anisurrahman251</a></dd>
       <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/md-anisur-rahman-31683089/" target="_blank" rel="noopener">linkedin.com/in/md-anisur-rahman-31683089</a></dd>
@@ -511,6 +661,24 @@
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       apply(next);
       try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+
+  // Optional images: looks for images/<name>.jpg|jpeg|png|webp|svg and shows the figure only if a file exists.
+  (function () {
+    var exts = ['jpg', 'jpeg', 'png', 'webp', 'svg'];
+    document.querySelectorAll('img[data-base]').forEach(function (img) {
+      var i = 0, base = img.getAttribute('data-base');
+      var fig = img.closest('figure');
+      img.addEventListener('load', function () {
+        if (fig) fig.hidden = false;
+        var box = img.closest('.figs');
+        if (box) box.classList.add('has');
+      });
+      img.addEventListener('error', function () {
+        if (i < exts.length) img.src = base + '.' + exts[i++];
+      });
+      img.src = base + '.' + exts[i++];
     });
   })();
 
